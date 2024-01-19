@@ -453,8 +453,9 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 2695962228175766825, guid: ab920aab470101640ba5a97bc4763ecb, type: 3}
   - {fileID: 6266760512721560421, guid: 32c9301f367486945abc717d59a52156, type: 3}
+  - {fileID: 5315349502590767158, guid: c8aa708b05b8d25418ddf5fad4be41db, type: 3}
   timeIntervalSpawn: 1
-  spawnPosX: 21
+  spawnPos: {x: 21, y: 0, z: 0}
 --- !u!1 &2014335011
 GameObject:
   m_ObjectHideFlags: 0

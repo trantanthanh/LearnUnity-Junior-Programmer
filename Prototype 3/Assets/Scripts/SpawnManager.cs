@@ -6,11 +6,13 @@ public class SpawnManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject[] spawnPrefabs;
+    [SerializeField] Vector3 spawnPos;
+
+    private float startDelay = 0f;
     [SerializeField] float timeIntervalSpawn = 1f;
-    [SerializeField] float spawnPosX = 10f;
     void Start()
     {
-        InvokeRepeating("SpawnObstacle", 0.0f, timeIntervalSpawn);
+        InvokeRepeating("SpawnObstacle", startDelay, timeIntervalSpawn);
     }
 
     // Update is called once per frame
@@ -22,6 +24,6 @@ public class SpawnManager : MonoBehaviour
     void SpawnObstacle()
     {
         int prefabIndexRand = Random.Range(0, spawnPrefabs.Length);
-        Instantiate(spawnPrefabs[prefabIndexRand],new Vector3(spawnPosX, 0 ,0), transform.rotation);
+        Instantiate(spawnPrefabs[prefabIndexRand], spawnPos, transform.rotation);
     }
 }
