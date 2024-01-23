@@ -20,5 +20,9 @@ public class MoveLeft : MonoBehaviour
         {
             transform.Translate(Vector3.left * speedMove * Time.deltaTime);
         }
+        else if (!playerControllerScript.IsOnGround())
+        {
+            transform.Translate(Vector3.left * speedMove * Time.deltaTime);
+        }
     }
 }
