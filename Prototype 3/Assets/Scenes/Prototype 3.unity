@@ -490,7 +490,8 @@ MonoBehaviour:
   - {fileID: 6266760512721560421, guid: 32c9301f367486945abc717d59a52156, type: 3}
   - {fileID: 5315349502590767158, guid: c8aa708b05b8d25418ddf5fad4be41db, type: 3}
   spawnPos: {x: 21, y: 0, z: 0}
-  timeIntervalSpawn: 1
+  minTimeSpawn: 0.7
+  maxTimeSpawn: 2
 --- !u!1 &2014335011
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,6 +605,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2759633987943563447, guid: 0c09f9016ece8d74e9d1eabd3b1fd442, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5492701244224689073, guid: 0c09f9016ece8d74e9d1eabd3b1fd442, type: 3}
       propertyPath: m_Name
       value: Player
