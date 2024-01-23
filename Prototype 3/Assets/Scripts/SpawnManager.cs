@@ -10,10 +10,13 @@ public class SpawnManager : MonoBehaviour
     private PlayerController playerControllerScript;
 
     private float startDelay = 0f;
-    [SerializeField] float timeIntervalSpawn = 1f;
+    //[SerializeField] float timeIntervalSpawn = 1f;
+    [SerializeField] float minTimeSpawn = 1f;
+    [SerializeField] float maxTimeSpawn = 2f;
     void Start()
     {
-        InvokeRepeating("SpawnObstacle", startDelay, timeIntervalSpawn);
+        //InvokeRepeating("SpawnObstacle", startDelay, timeIntervalSpawn);
+        StartCoroutine("SpawnObstacleRandomTime");
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
@@ -24,6 +27,21 @@ public class SpawnManager : MonoBehaviour
     }
 
     void SpawnObstacle()
+    {
+        Spawn();
+    }
+
+    IEnumerator SpawnObstacleRandomTime()
+    {
+        while (true)
+        {
+            float timeInterval = Random.Range(minTimeSpawn, maxTimeSpawn);
+            yield return new WaitForSeconds(timeInterval);
+            Spawn();
+        }
+    }
+
+    void Spawn()
     {
         if (!playerControllerScript.isGameOver)
         {
