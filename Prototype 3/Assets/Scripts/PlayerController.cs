@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private bool isOnGround = true;
 
     public bool isGameOver = false;
+    public ParticleSystem explosionParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
+            explosionParticle.Play();
             isGameOver = true;
             playerAnimator.SetBool("Death_b", true);
             if (isOnGround)

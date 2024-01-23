@@ -13,6 +13,7 @@ public class SpawnManager : MonoBehaviour
     //[SerializeField] float timeIntervalSpawn = 1f;
     [SerializeField] float minTimeSpawn = 1f;
     [SerializeField] float maxTimeSpawn = 2f;
+
     void Start()
     {
         //InvokeRepeating("SpawnObstacle", startDelay, timeIntervalSpawn);
