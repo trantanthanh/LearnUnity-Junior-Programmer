@@ -8,13 +8,24 @@ public class RotateCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up, horizontalInput * rotateSpeed * Time.deltaTime);
+        float mouseXInput = Input.GetAxis("Mouse X");
+        if (Input.GetMouseButton(0))
+        {
+            if (mouseXInput != 0)
+            {
+                transform.Rotate(Vector3.up, mouseXInput * rotateSpeed * Time.deltaTime);
+            }
+        }
+        else
+        {
+            transform.Rotate(Vector3.up, horizontalInput * rotateSpeed * Time.deltaTime);
+        }
     }
 }
