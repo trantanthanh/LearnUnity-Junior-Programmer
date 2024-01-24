@@ -19374,10 +19374,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOver: 0
   floatForce: 50
+  floatBounce: 12
+  heightBound: 15
   explosionParticle: {fileID: 1750335002818135953}
   fireworksParticle: {fileID: 691612253240616598}
   moneySound: {fileID: 8300000, guid: af9f934eb4288464eb120a5857921cc3, type: 3}
   explodeSound: {fileID: 8300000, guid: 774ebc5c074ce4695b7cc310fbd44087, type: 3}
+  bounceSound: {fileID: 8300000, guid: ccb9b31174a3a43709a113a9c7cf4252, type: 3}
 --- !u!65 &1185217579982898638
 BoxCollider:
   m_ObjectHideFlags: 0

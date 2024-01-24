@@ -258,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 460865715}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -597,37 +597,14 @@ GameObject:
   - component: {fileID: 1292757558}
   - component: {fileID: 1292757557}
   - component: {fileID: 1292757556}
-  - component: {fileID: 1292757555}
   - component: {fileID: 1292757559}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1292757555
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292757554}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1292757556
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -792,7 +769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2878363247871592362, guid: 4b7a64f486d74ec44af578ec49f4b15d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.87
+      value: 9.07
       objectReference: {fileID: 0}
     - target: {fileID: 2878363247871592362, guid: 4b7a64f486d74ec44af578ec49f4b15d, type: 3}
       propertyPath: m_LocalPosition.z
