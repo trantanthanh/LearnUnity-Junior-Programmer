@@ -236,7 +236,8 @@ MonoBehaviour:
   enemiesPrefab:
   - {fileID: 1033999225039094880, guid: c663951c201a51b4199cf687787ca821, type: 3}
   startDelay: 0
-  intervalSpawn: 10
+  intervalSpawn: 9
+  spawnRadius: 9
 --- !u!4 &1194582933
 Transform:
   m_ObjectHideFlags: 0
