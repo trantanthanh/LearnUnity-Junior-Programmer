@@ -12,22 +12,39 @@ public class SpawnManager : MonoBehaviour
 
     public float timerMinSpawnPowerUp = 8f;
     public float timerMaxSpawnPowerUp = 15f;
+
+    public int enemyCount;
+    public int waveNumber = 1;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", startDelay, intervalSpawn);
+        //InvokeRepeating("SpawnEnemy", startDelay, intervalSpawn);
+        SpawnEnemyWave(waveNumber);
         StartCoroutine("RandomTimeSpawnPowerUp");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        enemyCount = FindObjectsOfType<Enemy>().Length;
+        if (enemyCount == 0)
+        {
+            ++waveNumber;
+            SpawnEnemyWave(waveNumber);
+        }
     }
 
     Vector3 GenerateSpawnPos()
     {
         return new Vector3(Random.Range(-spawnRadius, spawnRadius), 0, Random.Range(-spawnRadius, spawnRadius));
+    }
+
+    void SpawnEnemyWave(int enemiesToSpawn)
+    {
+        for (int i = 0; i < enemiesToSpawn; i++)
+        {
+            SpawnEnemy();
+        }
     }
 
     void SpawnEnemy()
