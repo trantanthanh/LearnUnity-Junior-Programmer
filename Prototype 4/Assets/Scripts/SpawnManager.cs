@@ -20,7 +20,7 @@ public class SpawnManager : MonoBehaviour
     {
         //InvokeRepeating("SpawnEnemy", startDelay, intervalSpawn);
         SpawnEnemyWave(waveNumber);
-        StartCoroutine("RandomTimeSpawnPowerUp");
+        //StartCoroutine("RandomTimeSpawnPowerUp");
     }
 
     // Update is called once per frame
@@ -45,6 +45,7 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnEnemy();
         }
+        SpawnPowerUp();
     }
 
     void SpawnEnemy()
@@ -64,6 +65,10 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnPowerUp()
     {
+        int powerUpCount = FindObjectsOfType<PowerUp>().Length;
+        if (powerUpCount > 0) { 
+            return; 
+        }
         int indexRandom = Random.Range(0, powerUpPrefabs.Length);
         Instantiate(powerUpPrefabs[indexRandom], GenerateSpawnPos(), powerUpPrefabs[indexRandom].transform.rotation);
     }
