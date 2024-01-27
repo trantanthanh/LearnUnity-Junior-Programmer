@@ -8,7 +8,6 @@ public class SpawnManager : MonoBehaviour
     public float startDelay = 0f;
     public float intervalSpawn = 3f;
     public float spawnRadius = 8f;
-    private Vector3 spawnPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,15 +20,14 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    void RandomSpawnPos()
+    Vector3 GenerateSpawnPos()
     {
-        spawnPos = new Vector3(Random.Range(-spawnRadius, spawnRadius), 0, Random.Range(-spawnRadius, spawnRadius));
+        return new Vector3(Random.Range(-spawnRadius, spawnRadius), 0, Random.Range(-spawnRadius, spawnRadius));
     }
 
     void SpawnEnemy()
     {
-        RandomSpawnPos();
         int indexRandom = Random.Range(0, enemiesPrefab.Length);
-        Instantiate(enemiesPrefab[indexRandom], spawnPos, enemiesPrefab[indexRandom].transform.rotation);
+        Instantiate(enemiesPrefab[indexRandom], GenerateSpawnPos(), enemiesPrefab[indexRandom].transform.rotation);
     }
 }
