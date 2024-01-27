@@ -235,13 +235,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesPrefabs:
   - {fileID: 1033999225039094880, guid: c663951c201a51b4199cf687787ca821, type: 3}
+  - {fileID: 1033999225039094880, guid: 4d82a6ea36fe6624cac9fd8b621ef055, type: 3}
+  - {fileID: 1033999225039094880, guid: 7901e393178898e4eb7e5d10dae03296, type: 3}
   powerUpPrefabs:
   - {fileID: 422180124011613616, guid: 73107b395f4f48847b475aa1002e74a7, type: 3}
+  - {fileID: 1172990543347926930, guid: 0015bd1e80e62404ca561e3ddca6be8f, type: 3}
   startDelay: 0
   intervalSpawn: 9
   spawnRadius: 9
   timerMinSpawnPowerUp: 8
   timerMaxSpawnPowerUp: 15
+  enemyCount: 0
+  waveNumber: 1
 --- !u!4 &1194582933
 Transform:
   m_ObjectHideFlags: 0
