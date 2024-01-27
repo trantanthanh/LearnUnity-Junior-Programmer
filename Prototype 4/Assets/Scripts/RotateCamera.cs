@@ -16,14 +16,14 @@ public class RotateCamera : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float mouseXInput = Input.GetAxis("Mouse X");
-        if (Input.GetMouseButton(0))
-        {
-            if (mouseXInput != 0)
-            {
-                transform.Rotate(Vector3.up, mouseXInput * rotateSpeed * Time.deltaTime);
-            }
-        }
-        else
+        //if (Input.GetMouseButton(0))
+        //{
+        //    if (mouseXInput != 0)
+        //    {
+        //        transform.Rotate(Vector3.up, mouseXInput * rotateSpeed * Time.deltaTime);
+        //    }
+        //}
+        //else
         {
             transform.Rotate(Vector3.up, horizontalInput * rotateSpeed * Time.deltaTime);
         }

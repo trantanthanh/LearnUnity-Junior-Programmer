@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public float speed = 10f;
     public float forcePowerUpStrength = 20f;
     public float timePowerUp = 8f;
+    public GameObject powerUpIndicator;
+    public Vector3 offsetPowerUp;
     private Rigidbody playerRb;
     private GameObject focalPoint;
     private bool hasPowerup = false;
@@ -25,7 +27,10 @@ public class PlayerController : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         //playerRb.AddForce(Vector3.forward * speed * verticalInput);
         playerRb.AddForce(focalPoint.transform.forward * speed * verticalInput);
-
+        if (hasPowerup)
+        {
+            powerUpIndicator.transform.position = transform.position + offsetPowerUp;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -33,6 +38,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("PowerUp"))
         {
             hasPowerup = true;
+            powerUpIndicator.gameObject.SetActive(true);
             if (powerUpCoroutine != null ) StopCoroutine(powerUpCoroutine);
             powerUpCoroutine = StartCoroutine(PowerUpCountDownRoutine());
             Destroy(other.gameObject);
@@ -53,6 +59,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator PowerUpCountDownRoutine()
     {
         yield return new WaitForSeconds(timePowerUp);
+        powerUpIndicator.gameObject.SetActive(false);
         hasPowerup = false;
     }
 }
