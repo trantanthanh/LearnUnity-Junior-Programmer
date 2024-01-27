@@ -6,10 +6,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10f;
-    public float forcePowerup = 200;
+    public float forcePowerUpStrength = 20f;
+    public float timePowerUp = 8f;
     private Rigidbody playerRb;
     private GameObject focalPoint;
     private bool hasPowerup = false;
+    private Coroutine powerUpCoroutine;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("PowerUp"))
         {
             hasPowerup = true;
+            if (powerUpCoroutine != null ) StopCoroutine(powerUpCoroutine);
+            powerUpCoroutine = StartCoroutine(PowerUpCountDownRoutine());
             Destroy(other.gameObject);
         }
     }
@@ -42,7 +46,13 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("Collided with " + other.gameObject.name + "with hasPowerUp = " + hasPowerup); 
             Rigidbody enemyRb = other.gameObject.GetComponent<Rigidbody>();
             Vector3 awayFromPlayer = (enemyRb.transform.position - transform.position).normalized;
-            enemyRb.AddForce(awayFromPlayer * forcePowerup, ForceMode.Impulse);
+            enemyRb.AddForce(awayFromPlayer * forcePowerUpStrength, ForceMode.Impulse);
         }
+    }
+
+    IEnumerator PowerUpCountDownRoutine()
+    {
+        yield return new WaitForSeconds(timePowerUp);
+        hasPowerup = false;
     }
 }
