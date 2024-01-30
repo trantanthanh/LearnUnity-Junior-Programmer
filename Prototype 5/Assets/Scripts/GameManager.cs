@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public float timeIntervalSpawn = 1f;
     public TextMeshProUGUI scoreTMP;
     public TextMeshProUGUI gameOverTMP;
-    public GameObject restartBtn;
+    public Button restartBtn;
     public List<GameObject> targets;
     //private Coroutine spawnCoroutine;
     private int score;
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         isGameActive = true;
         score = 0;
         gameOverTMP.gameObject.SetActive(false);
-        restartBtn.SetActive(false);
+        restartBtn.gameObject.SetActive(false);
         UpdateScore(0);
         //spawnCoroutine = StartCoroutine(SpawnTarget());
         StartCoroutine(SpawnTarget());
@@ -58,11 +58,11 @@ public class GameManager : MonoBehaviour
         //    StopCoroutine(spawnCoroutine);
         //}
         gameOverTMP.gameObject.SetActive(true);
-        restartBtn.SetActive(true);
+        restartBtn.gameObject.SetActive(true);
     }
 
-    public void Restart()
+    public void RestartGame()
     {
-        SceneManager.LoadScene("Prototype 5");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
