@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7021232224710890842}
   m_Layer: 0
   m_Name: Good 2
-  m_TagString: Untagged
+  m_TagString: Good
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.51974, y: 0.17482021, z: 0.5152532}
+  m_Size: {x: 0.51974, y: 0.38, z: 0.5152532}
   m_Center: {x: 0, y: -0.000000022351742, z: -0.000000044703484}
 --- !u!54 &7021232224710890842
 Rigidbody:

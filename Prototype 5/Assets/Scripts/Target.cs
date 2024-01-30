@@ -8,7 +8,7 @@ public class Target : MonoBehaviour
     public int pointValue = 5;
     public ParticleSystem explosionParticle;
     private float forceMin = 12;
-    private float forceMax = 16;
+    private float forceMax = 15;
     private float torqueMin = 5;
     private float torqueMax = 10;
     private float leftSpawnX = -4f;
@@ -54,11 +54,17 @@ public class Target : MonoBehaviour
         if (transform.position.y < -10)
         {
             Destroy(gameObject);
+            if (gameObject.CompareTag("Good"))
+            {
+                //trigger Game Over
+                gameManager.GameOver();
+            }
         }
     }
 
     void OnMouseDown()
     {
+        if (!gameManager.isGameActive) return;
         Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
         gameManager.UpdateScore(pointValue);
         Destroy(gameObject);
