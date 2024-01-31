@@ -57,7 +57,7 @@ public class Target : MonoBehaviour
             if (gameObject.CompareTag("Good"))
             {
                 //trigger Game Over
-                gameManager.GameOver();
+                gameManager.LostLive();
             }
         }
     }

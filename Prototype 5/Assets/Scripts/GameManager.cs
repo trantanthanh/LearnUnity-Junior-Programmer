@@ -10,8 +10,11 @@ public class GameManager : MonoBehaviour
     public float timeIntSpawnEasy = 2f;
     public float timeIntSpawnMedium = 1f;
     public float timeIntSpawnHard = 0.5f;
+    public int numOfLives = 3;
+    private int livesRemain;
     private float timeIntervalSpawn = 1f;
     public TextMeshProUGUI scoreTMP;
+    public TextMeshProUGUI livesTMP;
     public GameObject gameOverLayout;
     public GameObject mainMenuLayout;
     public List<GameObject> targets;
@@ -21,6 +24,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        livesRemain = numOfLives;
+        UpdateLivesText();
         isGameActive = false;
         score = 0;
         gameOverLayout.SetActive(false);
@@ -80,7 +85,22 @@ public class GameManager : MonoBehaviour
         scoreTMP.text = "Score : " + score;
     }
 
-    public void GameOver()
+    public void LostLive()
+    {
+        --livesRemain;
+        UpdateLivesText();
+        if (livesRemain <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    void UpdateLivesText()
+    {
+        livesTMP.text = "Lives : " + livesRemain;
+    }
+
+    void GameOver()
     {
         isGameActive = false;
         //if (spawnCoroutine != null)
