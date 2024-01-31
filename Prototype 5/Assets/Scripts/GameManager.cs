@@ -7,10 +7,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public float timeIntervalSpawn = 1f;
+    public float timeIntSpawnEasy = 2f;
+    public float timeIntSpawnMedium = 1f;
+    public float timeIntSpawnHard = 0.5f;
+    private float timeIntervalSpawn = 1f;
     public TextMeshProUGUI scoreTMP;
-    public TextMeshProUGUI gameOverTMP;
-    public Button restartBtn;
+    public GameObject gameOverLayout;
+    public GameObject mainMenuLayout;
     public List<GameObject> targets;
     //private Coroutine spawnCoroutine;
     private int score;
@@ -18,13 +21,40 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isGameActive = true;
+        isGameActive = false;
         score = 0;
-        gameOverTMP.gameObject.SetActive(false);
-        restartBtn.gameObject.SetActive(false);
+        gameOverLayout.SetActive(false);
+        mainMenuLayout.SetActive(true);
         UpdateScore(0);
         //spawnCoroutine = StartCoroutine(SpawnTarget());
+    }
+
+    public void StartGame(int difficulty)
+    {
+        isGameActive = true;
+        mainMenuLayout.SetActive(false);
         StartCoroutine(SpawnTarget());
+        switch (difficulty)
+        {
+            case 0:
+                {
+                    //easy
+                    timeIntervalSpawn = timeIntSpawnEasy;
+                    break;
+                }
+            case 1:
+                {
+                    //medium
+                    timeIntervalSpawn = timeIntSpawnMedium;
+                    break;
+                }
+            case 2:
+                {
+                    //hard
+                    timeIntervalSpawn = timeIntSpawnHard;
+                    break;
+                }
+        }
     }
 
     // Update is called once per frame
@@ -57,11 +87,19 @@ public class GameManager : MonoBehaviour
         //{
         //    StopCoroutine(spawnCoroutine);
         //}
-        gameOverTMP.gameObject.SetActive(true);
-        restartBtn.gameObject.SetActive(true);
+        gameOverLayout.SetActive(true);
     }
 
     public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        isGameActive = true;
+        score = 0;
+        UpdateScore(0);
+        mainMenuLayout.SetActive(false);
+        gameOverLayout.SetActive(false);
+    }
+    public void RestartToMainMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
