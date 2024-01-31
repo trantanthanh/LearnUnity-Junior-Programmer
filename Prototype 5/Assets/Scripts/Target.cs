@@ -64,6 +64,11 @@ public class Target : MonoBehaviour
 
     void OnMouseDown()
     {
+        DestroyTarget();
+    }
+
+    public void DestroyTarget()
+    {
         if (gameManager.isGameActive)
         {
             if (gameObject.CompareTag("Good"))
