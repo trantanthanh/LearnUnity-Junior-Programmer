@@ -29,26 +29,26 @@ public class GameManager : MonoBehaviour
         //spawnCoroutine = StartCoroutine(SpawnTarget());
     }
 
-    public void StartGame(int difficulty)
+    public void StartGame(string difficulty)
     {
         isGameActive = true;
         mainMenuLayout.SetActive(false);
         StartCoroutine(SpawnTarget());
         switch (difficulty)
         {
-            case 0:
+            case "Easy" :
                 {
                     //easy
                     timeIntervalSpawn = timeIntSpawnEasy;
                     break;
                 }
-            case 1:
+            case "Medium":
                 {
                     //medium
                     timeIntervalSpawn = timeIntSpawnMedium;
                     break;
                 }
-            case 2:
+            case "Hard":
                 {
                     //hard
                     timeIntervalSpawn = timeIntSpawnHard;
