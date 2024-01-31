@@ -4,13 +4,17 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class GameManagerX : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI timerText;
     public TextMeshProUGUI gameOverText;
     public GameObject titleScreen;
     public Button restartButton;
+    public float timerOfGame;
+    private float timerRemain;
 
     public List<GameObject> targetPrefabs;
 
@@ -22,9 +26,16 @@ public class GameManagerX : MonoBehaviour
     private float minValueX = -3.75f; //  x value of the center of the left-most square
     private float minValueY = -3.75f; //  y value of the center of the bottom-most square
 
+    void Start()
+    {
+        timerRemain = timerOfGame;
+        SetTime(timerRemain);
+    }
+
     // Start the game, remove title screen, reset score, and adjust spawnRate based on difficulty button clicked
     public void StartGame(int difficulty)
     {
+        timerRemain = timerOfGame;
         spawnRate /= difficulty;
         isGameActive = true;
         StartCoroutine(SpawnTarget());
@@ -82,4 +93,26 @@ public class GameManagerX : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    void Update()
+    {
+        if (isGameActive)
+        {
+            UpdateTimer();
+        }
+    }
+
+    private void UpdateTimer()
+    {
+        timerRemain -= Time.deltaTime;
+        SetTime(timerRemain);
+        if (timerRemain <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    private void SetTime(float time)
+    {
+        timerText.text = "Timer : " + Mathf.CeilToInt(timerRemain);
+    }
 }
