@@ -17,9 +17,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI livesTMP;
     public GameObject gameOverLayout;
     public GameObject mainMenuLayout;
+    public GameObject pauseScreen;
     public List<GameObject> targets;
     //private Coroutine spawnCoroutine;
     private int score;
+    private bool isPaused = false;
     public bool isGameActive = false;
 
     public AudioClip[] sfxGoodItems;
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isPaused = false;
         audioSource = GetComponent<AudioSource>();
         livesRemain = numOfLives;
         UpdateLivesText();
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         gameOverLayout.SetActive(false);
         mainMenuLayout.SetActive(true);
+        pauseScreen.SetActive(false);
         UpdateScore(0);
         //spawnCoroutine = StartCoroutine(SpawnTarget());
     }
@@ -71,7 +75,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            TogglePause();
+        }
     }
 
     IEnumerator SpawnTarget()
@@ -139,5 +146,21 @@ public class GameManager : MonoBehaviour
     public void PlaySoundBombSFX()
     {
         audioSource.PlayOneShot(sfxBad);
+    }
+
+    void TogglePause()
+    { 
+        isPaused = !isPaused;
+        isGameActive = !isPaused;
+        if (isPaused)
+        {
+            audioSource.Pause();
+        }
+        else
+        {
+            audioSource.UnPause();
+        }
+        pauseScreen.SetActive(isPaused);
+        Time.timeScale = isPaused ? 0 : 1;
     }
 }
