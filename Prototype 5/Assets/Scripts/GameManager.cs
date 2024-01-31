@@ -21,9 +21,15 @@ public class GameManager : MonoBehaviour
     //private Coroutine spawnCoroutine;
     private int score;
     public bool isGameActive = false;
+
+    public AudioClip[] sfxGoodItems;
+    public AudioClip sfxBad;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         livesRemain = numOfLives;
         UpdateLivesText();
         isGameActive = false;
@@ -122,5 +128,16 @@ public class GameManager : MonoBehaviour
     public void RestartToMainMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void PlaySoundSFX()
+    {
+        int index = Random.Range(0, sfxGoodItems.Length);
+        audioSource.PlayOneShot(sfxGoodItems[index]);
+    }
+
+    public void PlaySoundBombSFX()
+    {
+        audioSource.PlayOneShot(sfxBad);
     }
 }

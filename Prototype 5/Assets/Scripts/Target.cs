@@ -66,6 +66,14 @@ public class Target : MonoBehaviour
     {
         if (gameManager.isGameActive)
         {
+            if (gameObject.CompareTag("Good"))
+            {
+                gameManager.PlaySoundSFX();
+            }
+            else
+            {
+                gameManager.PlaySoundBombSFX();
+            }
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
             gameManager.UpdateScore(pointValue);
             Destroy(gameObject);
