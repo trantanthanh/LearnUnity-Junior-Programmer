@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    [HideInInspector]
     public static ObjectPooler SharedInstance;
-
     public List<GameObject> pooledObjects;
     public GameObject objectToPool;
     public int amountToPool;
@@ -35,7 +33,7 @@ public class ObjectPooler : MonoBehaviour
         // For as many objects as are in the pooledObjects list
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            // if the pooled objects is NOT active, return that object 
+            // if the pooled objects is NOT active, return that object
             if (!pooledObjects[i].activeInHierarchy)
             {
                 return pooledObjects[i];

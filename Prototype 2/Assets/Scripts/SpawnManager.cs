@@ -28,7 +28,15 @@ public class SpawnManager : MonoBehaviour
     void SpawnRandomAnimal()
     {
         Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+
         int animalIndexRandom = Random.Range(0, animalPrefabs.Length);
         Instantiate(animalPrefabs[animalIndexRandom], spawnPos, animalPrefabs[animalIndexRandom].transform.rotation);
+
+        //GameObject animal = ObjectPooler.SharedInstance.GetPooledObject();
+        //if (animal != null)
+        //{
+        //    animal.SetActive(true); // activate it
+        //    animal.transform.position = spawnPos;
+        //}
     }
 }

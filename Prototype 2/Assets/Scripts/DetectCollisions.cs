@@ -11,7 +11,6 @@ public class DetectCollisions : MonoBehaviour
 
         // Just deactivate the food and destroy the animal
         other.gameObject.SetActive(false);
-        Destroy(gameObject);
     }
 
 }
