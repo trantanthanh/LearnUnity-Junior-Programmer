@@ -791,12 +791,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e917c52987daa41af6a0305d9813c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  projectilePrefab: {fileID: 0}
-=======
   speed: 20
-  turnSpeed: 30
->>>>>>> parent of b703046 (commit , add Object pooling asset)
+  turnSpeed: 10
 --- !u!4 &1312232381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3858995680632013777, guid: 51a084e4035b24e76997744a50c711d4, type: 3}
