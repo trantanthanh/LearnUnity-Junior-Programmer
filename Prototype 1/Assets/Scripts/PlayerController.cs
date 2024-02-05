@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed = 10f;
+    //[SerializeField] float speed = 10f;
     [SerializeField] float turnSpeed = 10f;
+    [SerializeField] float forcePower = 10f;
+    private Rigidbody playerRb;
     private float horizontalInput;
     private float forwardInput;
     // Start is called before the first frame update
     void Start()
     {
-
+        playerRb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -22,7 +24,8 @@ public class PlayerController : MonoBehaviour
         forwardInput = Input.GetAxis("Vertical");
         // transform.Translate(0, 0, speed * Time.deltaTime);
         // move the vehicle forward
-        transform.Translate(Vector3.forward * speed * Time.deltaTime * forwardInput);
+        //transform.Translate(Vector3.forward * speed * Time.deltaTime * forwardInput);
+        playerRb.AddRelativeForce(Vector3.forward * forcePower * forwardInput);
 
         // turn the vehicle
         // transform.Translate(Vector3.right * turnSpeed * Time.deltaTime * horizontalInput);
