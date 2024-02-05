@@ -585,6 +585,26 @@ PrefabInstance:
       propertyPath: textSpeedometer
       value: 
       objectReference: {fileID: 798702761}
+    - target: {fileID: 1643359881918318508, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
+      propertyPath: allWheelColliders.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643359881918318508, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
+      propertyPath: allWheelColliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 1631528261}
+    - target: {fileID: 1643359881918318508, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
+      propertyPath: allWheelColliders.Array.data[1]
+      value: 
+      objectReference: {fileID: 2007453818}
+    - target: {fileID: 1643359881918318508, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
+      propertyPath: allWheelColliders.Array.data[2]
+      value: 
+      objectReference: {fileID: 1298021735}
+    - target: {fileID: 1643359881918318508, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
+      propertyPath: allWheelColliders.Array.data[3]
+      value: 
+      objectReference: {fileID: 1628457680}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1024,7 +1044,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1127,6 +1147,11 @@ Transform:
 --- !u!1 &1040167662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 178130, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
+  m_PrefabInstance: {fileID: 643014923}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &1298021735 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 1819387096082299610, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
   m_PrefabInstance: {fileID: 643014923}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1312232381 stripped
@@ -1264,6 +1289,16 @@ Rigidbody:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8780424320546655305, guid: 71782582b9d2cac4cba5251a3b767d13, type: 3}
   m_PrefabInstance: {fileID: 1615345254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &1628457680 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 7471785514557830753, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
+  m_PrefabInstance: {fileID: 643014923}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &1631528261 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 497070874634139012, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
+  m_PrefabInstance: {fileID: 643014923}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1701271361
 GameObject:
@@ -1428,6 +1463,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!146 &2007453818 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 5436352708240593113, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
+  m_PrefabInstance: {fileID: 643014923}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2093379048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7317731328111405690, guid: 5f0963a629b97442587b7f3ece766e42, type: 3}
