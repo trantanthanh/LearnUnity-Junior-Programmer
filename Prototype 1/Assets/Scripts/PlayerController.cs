@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] float speed = 10f;
     [SerializeField] float turnSpeed = 10f;
     [SerializeField] float forcePower = 10f;
+    [SerializeField] GameObject centerOfMass;
     private Rigidbody playerRb;
     private float horizontalInput;
     private float forwardInput;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerRb.centerOfMass = centerOfMass.transform.position;
     }
 
     // Update is called once per frame
