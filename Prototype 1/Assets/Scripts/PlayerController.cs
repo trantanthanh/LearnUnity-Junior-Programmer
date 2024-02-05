@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,9 +9,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float turnSpeed = 10f;
     [SerializeField] float forcePower = 10f;
     [SerializeField] GameObject centerOfMass;
+    [SerializeField] TextMeshProUGUI textSpeedometer;
     private Rigidbody playerRb;
     private float horizontalInput;
     private float forwardInput;
+    private float currentSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,5 +35,12 @@ public class PlayerController : MonoBehaviour
         // turn the vehicle
         // transform.Translate(Vector3.right * turnSpeed * Time.deltaTime * horizontalInput);
         transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * horizontalInput);
+        UpdateSpeedometer();
+    }
+
+    void UpdateSpeedometer()
+    { 
+        currentSpeed = Mathf.Round(playerRb.velocity.magnitude * 3.6f);
+        textSpeedometer.text = "Speed : " + currentSpeed + " km/h";
     }
 }
