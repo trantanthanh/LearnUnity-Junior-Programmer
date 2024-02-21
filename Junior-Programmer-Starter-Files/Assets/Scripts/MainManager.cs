@@ -8,8 +8,11 @@ public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;
     public Color TeamColor;
+    private static string SaveFileName = "savefile.json";
+    private string pathSave;
     private void Awake()
     {
+        pathSave = Application.persistentDataPath + "/" + SaveFileName;
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -18,6 +21,7 @@ public class MainManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        LoadColor();
     }
 
     [Serializable]
@@ -32,6 +36,16 @@ public class MainManager : MonoBehaviour
         data.TeamColor = TeamColor;
 
         string json = JsonUtility.ToJson(data);
-        File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
+        File.WriteAllText(pathSave, json);
+    }
+
+    public void LoadColor()
+    {
+        if (File.Exists(pathSave))
+        {
+            string json =  File.ReadAllText(pathSave);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+            TeamColor = data.TeamColor;
+        }
     }
 }
