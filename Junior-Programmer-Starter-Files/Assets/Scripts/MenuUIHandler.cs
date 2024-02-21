@@ -35,6 +35,7 @@ public class MenuUIHandler : MonoBehaviour
 
     public void Exit()
     {
+        SaveColorClicked();
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();//quit play mode in editor
 #else
