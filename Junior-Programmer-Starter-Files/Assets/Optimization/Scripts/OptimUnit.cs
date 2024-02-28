@@ -37,7 +37,7 @@ public class OptimUnit : MonoBehaviour
 
 
         Profiler.BeginSample("Rotating");
-        var t = transform;
+        //var t = transform;
 
         if(transform.position.x <= 0)
             transform.Rotate(currentAngularVelocity * Time.deltaTime, 0, 0);
@@ -105,19 +105,21 @@ public class OptimUnit : MonoBehaviour
 
     void Move()
     {
-        Vector3 position = transform.position;
+        //Vector3 position = transform.position;
         
-        float distanceToCenter = Vector3.Distance(Vector3.zero, position);
-        float speed = 0.5f + distanceToCenter / areaSize.magnitude;
+        //float distanceToCenter = Vector3.Distance(Vector3.zero, position);
+        //float speed = 0.5f + distanceToCenter / areaSize.magnitude;
         
-        int steps = Random.Range(1000, 2000);
-        float increment = Time.deltaTime / steps;
-        for (int i = 0; i < steps; ++i)
-        {
-            position += currentVelocity * increment * speed;
-        }
+        //int steps = Random.Range(1000, 2000);
+        //float increment = Time.deltaTime / steps;
+        //for (int i = 0; i < steps; ++i)
+        //{
+        //    position += currentVelocity * increment * speed;
+        //}
         
-        transform.position = position;
+        //transform.position = position;
+
+        transform.position += currentVelocity * Time.deltaTime;
     }
 
     private void HandleTime()
